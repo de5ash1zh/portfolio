@@ -1,0 +1,213 @@
+/* styles.css */
+body {
+  font-family: "Courier New", Courier, monospace;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loader-animation {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.programmer {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: typing 1s steps(4) infinite;
+}
+
+.programmer .head {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+}
+
+.programmer .body {
+  width: 10px;
+  height: 30px;
+  background-color: #fff;
+  position: absolute;
+  top: 40px;
+}
+
+.programmer .arms {
+  width: 40px;
+  height: 5px;
+  background-color: #fff;
+  position: absolute;
+  top: 50px;
+}
+
+.programmer .laptop {
+  width: 30px;
+  height: 20px;
+  background-color: #fff;
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  border-radius: 3px;
+}
+
+@keyframes typing {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+#content {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+body.loaded #content {
+  opacity: 1;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+header h1 span {
+  font-size: 1.2em;
+}
+
+header img.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+}
+
+header img.profile-pic:hover {
+  transform: scale(1.1);
+}
+
+section {
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.work-item,
+.project-item {
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out, background-color 0.3s, box-shadow 0.3s;
+}
+
+.work-item:hover,
+.project-item:hover {
+  transform: translateY(-10px);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #007bff;
+  border-bottom: 1px solid #007bff;
+}
+
+body.light-theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark-theme {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+button.light-theme {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+button.dark-theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Mobile Specific Styles */
+@media (hover: none) and (pointer: coarse) {
+  header img.profile-pic:active {
+    transform: scale(1.1);
+  }
+
+  .work-item:active,
+  .project-item:active {
+    transform: translateY(-10px);
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  button:active {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+
+  a:active {
+    text-decoration: underline;
+    color: #007bff;
+    border-bottom: 1px solid #007bff;
+  }
+}
